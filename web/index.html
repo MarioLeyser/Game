@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quantum Defense — La Meseta Radial y Las Cumbres del Vórtice</title>
+  <meta name="description" content="Juego educativo de Quantum Machine Learning: deforma el terreno con kernels, traza el escudo hiperplano y evita que se rompa por sobreajuste." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="stage" aria-label="Escenario 3D de Quantum Defense"></canvas>
+
+  <header class="topbar">
+    <h1 class="brand"><span class="brand-q">Q</span>uantum Defense</h1>
+    <nav class="worlds" aria-label="Mundos">
+      <button class="world-tab" id="tab-w2" data-world="2"><b>Mundo 2</b><small>La Meseta Radial</small></button>
+      <button class="world-tab" id="tab-w3" data-world="3"><b>Mundo 3</b><small>Las Cumbres del Vórtice</small></button>
+      <button class="world-tab locked" id="tab-w1" disabled><b>Mundo 1</b><small>Valle Lineal</small></button>
+      <button class="world-tab locked" id="tab-w4" disabled><b>Mundo 4</b><small>Abismo de Decoherencia</small></button>
+    </nav>
+  </header>
+
+  <aside class="panel spellbook" id="spellbook" aria-label="Libro de Hechizos">
+    <div class="panel-head">
+      <h2>📖 Libro de Hechizos</h2>
+      <span class="stars-total" id="stars-total">★ 0</span>
+    </div>
+    <p class="lore" id="lore"></p>
+    <ul class="spell-list" id="spell-list"></ul>
+    <div class="spell-detail" id="spell-detail"></div>
+  </aside>
+
+  <aside class="panel hud" id="hud" aria-label="Resultados del escudo">
+    <div class="panel-head"><h2>🛡 Escudo</h2><span class="stars" id="stars">☆☆☆</span></div>
+    <div class="stress-wrap">
+      <div class="stress-label"><span>Esfuerzo del cristal</span><span id="stress-val">0%</span></div>
+      <div class="stress-bar"><div class="stress-fill" id="stress-fill"></div><div class="stress-limit"></div></div>
+      <div class="stress-state" id="stress-state">Elige un hechizo para levantar el escudo.</div>
+    </div>
+    <dl class="stats" id="stats">
+      <div><dt>Train</dt><dd id="s-train">—</dd></div>
+      <div><dt>Test</dt><dd id="s-test">—</dd></div>
+      <div><dt>Onda NISQ</dt><dd id="s-robust">—</dd></div>
+      <div><dt>Brecha</dt><dd id="s-gap">—</dd></div>
+      <div><dt>Margen</dt><dd id="s-margin">—</dd></div>
+      <div><dt>Infiltrado</dt><dd id="s-capt">—</dd></div>
+    </dl>
+    <div class="player-shield" id="player-shield">
+      <h3>✍ Tu trazo</h3>
+      <p id="player-shield-text">Activa «Trazar escudo» y dibuja sobre la meseta.</p>
+    </div>
+    <div class="lift" id="lift-box" hidden>
+      <h3>⛰ Elevación radial <code>z = x² + y²</code></h3>
+      <label>Elevar <input type="range" id="lift" min="0" max="1" step="0.01" value="0" /></label>
+      <label>Plano <input type="range" id="plane" min="0" max="3" step="0.01" value="1.3" /></label>
+    </div>
+  </aside>
+
+  <footer class="toolbar">
+    <button class="btn" id="btn-stroke">✍ Trazar escudo</button>
+    <button class="btn" id="btn-clear">⌫ Borrar trazo</button>
+    <button class="btn" id="btn-wave">🌊 Onda NISQ</button>
+    <button class="btn" id="btn-test">🧪 Test de Overfitting</button>
+    <button class="btn ghost" id="btn-points">👁 Slimes de prueba</button>
+    <span class="hint" id="hint"></span>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <div class="loading" id="loading"><div class="spinner"></div><p>Precalentando el vórtice cuántico…</p></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

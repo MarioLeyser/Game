@@ -1,0 +1,30 @@
+[
+  {
+    "world": 1,
+    "id": "valle-lineal",
+    "name": "El Valle Lineal",
+    "file": "world1.json",
+    "recommended": "linear-C0.1"
+  },
+  {
+    "world": 2,
+    "id": "meseta-radial",
+    "name": "La Meseta Radial",
+    "file": "world2.json",
+    "recommended": "rbf-g2.0"
+  },
+  {
+    "world": 3,
+    "id": "cumbres-vortice",
+    "name": "Las Cumbres del Vórtice",
+    "file": "world3.json",
+    "recommended": "zz-r1-C1000"
+  },
+  {
+    "world": 4,
+    "id": "abismo-decoherencia",
+    "name": "El Abismo de Decoherencia",
+    "file": "world4.json",
+    "recommended": "zz-r1-C1000"
+  }
+]
